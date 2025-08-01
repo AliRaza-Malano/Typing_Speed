@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="typing-card">
+            <div class="typing-header">
+                <h1>Typing Speed Test</h1>
+                <p>Improve your typing speed and accuracy</p>
+            </div>
+            
+            <div class="controls">
+                <div class="time-control">
+                    <button class="time-btn" id="decrease-time">-</button>
+                    <input type="text" id="time" value="1" min="1" max="10">
+                    <button class="time-btn" id="increase-time">+</button>
+                    <span>min</span>
+                </div>
+                
+                <select class="lesson-select" id="lesson-select">
+                    <option value="programming">Programming Concepts</option>
+                    <option value="literature">Classic Literature</option>
+                    <option value="tech">Technology News</option>
+                    <option value="random">Random Text</option>
+                </select>
+                
+                <button id="start-btn">
+                    <i class="fas fa-play"></i> Start
+                </button>
+            </div>
+            
+            <div class="typing-content">
+                <div class="paragraph-container">
+                    <div id="paragraph"></div>
+                    <div id="highlight-paragraph"></div>
+                </div>
+                
+                <div class="typing-input-container">
+                    <textarea id="typing-input" placeholder="Start typing here when the test begins..." rows="4" disabled></textarea>
+                </div>
+                
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="time-display">1:00</span> remaining
+                </div>
+                
+                <div class="result-card" id="result-card">
+                    <div class="result-header">
+                        <h2>Your Results</h2>
+                        <i class="fas fa-trophy" style="color: gold; font-size: 1.5rem;"></i>
+                    </div>
+                    
+                    <div class="result-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="wpm-stat">0</div>
+                            <div class="stat-label">Words Per Minute</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value" id="accuracy-stat">0%</div>
+                            <div class="stat-label">Accuracy</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-value" id="time-stat">0</div>
+                            <div class="stat-label">Seconds</div>
+                        </div>
+                    </div>
+                    
+                    <button class="restart-btn" id="restart-btn">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

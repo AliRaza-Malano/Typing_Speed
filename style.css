@@ -1,0 +1,346 @@
+:root {
+    --primary: #084769;
+    --primary-light: #3a7ca5;
+    --accent: #5ab9ea;
+    --correct: #4ade80;
+    --incorrect: #f87171;
+    --active: #2563eb;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--text);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.typing-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.typing-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 24px;
+    text-align: center;
+}
+
+.typing-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.typing-header p {
+    opacity: 0.9;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.time-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 0 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.time-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 1rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.time-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#time {
+    width: 50px;
+    text-align: center;
+    font-size: 1rem;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+#time:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.lesson-select {
+    flex: 1;
+    padding: 0 12px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--bg);
+    font-size: 0.95rem;
+    height: 40px;
+    transition: var(--transition);
+}
+
+.lesson-select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(90, 185, 234, 0.2);
+}
+
+#start-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+}
+
+#start-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.typing-content {
+    padding: 24px;
+}
+
+.paragraph-container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+#paragraph {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    white-space: pre-wrap;
+    padding: 16px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#highlight-paragraph {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 16px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    pointer-events: none;
+    color: transparent;
+    white-space: pre-wrap;
+    z-index: 2;
+}
+
+.correct {
+    color: var(--correct);
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.incorrect {
+    color: var(--incorrect);
+    background: rgba(248, 113, 113, 0.1);
+}
+
+.active {
+    background: rgba(37, 99, 235, 0.1);
+    border-bottom: 2px solid var(--active);
+}
+
+.extra {
+    color: var(--incorrect);
+    background: rgba(248, 113, 113, 0.2);
+    text-decoration: line-through;
+}
+
+.typing-input-container {
+    position: relative;
+}
+
+#typing-input {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--bg);
+    transition: var(--transition);
+    resize: none;
+}
+
+#typing-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(90, 185, 234, 0.2);
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.timer i {
+    color: var(--primary);
+}
+
+.result-card {
+    display: none;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.result-header h2 {
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.restart-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.restart-btn:hover {
+    background: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .result-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .typing-header {
+        padding: 20px;
+    }
+
+    .typing-content {
+        padding: 16px;
+    }
+
+    #paragraph,
+    #highlight-paragraph {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
